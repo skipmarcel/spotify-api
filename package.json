@@ -1,5 +1,5 @@
 {
-  "name": "tdd-template",
+  "name": "spotify-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skipmarcel/template-repo-2.git"
+    "url": "git+https://github.com/skipmarcel/spotify-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/skipmarcel/template-repo-2/issues"
+    "url": "https://github.com/skipmarcel/spotify-api/issues"
   },
-  "homepage": "https://github.com/skipmarcel/template-repo-2#readme",
+  "homepage": "https://github.com/skipmarcel/spotify-api#readme",
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
