@@ -1,7 +1,6 @@
-export const getAccessToken = async () => {
-  const client_id = SPOTIFY_CLIENT_ID;
-  const client_secret = SPOTIFY_CLIENT_SECRET;
+import { client_id, client_secret } from "./config.js";
 
+export const getAccessToken = async () => {
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {

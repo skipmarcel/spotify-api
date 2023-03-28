@@ -1,7 +1,4 @@
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./css/styles.css";
-import { getAccessToken } from "./apiRequest";
+import { getAccessToken } from "./apiRequest.js";
 
 const guessInput = document.getElementById("guess-input");
 
@@ -13,7 +10,7 @@ let score = 0;
 
 // Load playlist when button is clicked
 async function loadPlaylist() {
-  accessToken = document.getElementById("access-token-input").value;
+  accessToken = await getAccessToken();
 
   fetch("https://api.spotify.com/v1/playlists/0sCbiYB4EZavMKH9gcbh8S/tracks", {
     headers: {

@@ -3,27 +3,35 @@
   <head>
     <title>Spotify Song Guessing Game</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Spotify Song Guessing Game</h1>
-    <p>Enter your access token:</p>
-    <input type="text" id="access-token-input" />
+    <h1>Name That Tune!</h1>
+
     <button id="load-playlist-button">Load Playlist</button>
 
-    <h2>Guess the Song!</h2>
-    <p>Current Song:</p>
-    <iframe
-      src="https://open.spotify.com/embed/track/"
-      id="song-iframe"
-    ></iframe>
-    <p>Guess the name of the song:</p>
+    <h2>Current Track</h2>
+
+    <div class="hidden" id="iframePlay">
+      <iframe
+        src="https://open.spotify.com/embed/track/"
+        id="song-iframe"
+      ></iframe>
+    </div>
+
+    <p>Name that tune:</p>
     <input type="text" id="guess-input" />
     <button id="submit-guess-button">Submit Guess</button>
     <button id="next-song-button">Next Song</button>
 
     <h2>Score: <span id="score">0</span></h2>
-    <script src="js/config.js"></script>
-    <script src="js/apiRequest.js"></script>
-    <script src="js/config.js"></script>
+
+    <script type="module" src="./js/apiRequest.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

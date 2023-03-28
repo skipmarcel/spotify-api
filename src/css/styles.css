@@ -11,6 +11,8 @@ body {
   background-size: 400% 400%;
   animation: moveGradient 10s ease infinite;
   animation-iteration-count: infinite;
+  font-family: "Fugaz One", cursive;
+  color: azure;
 }
 
 @keyframes moveGradient {
@@ -25,10 +27,22 @@ body {
   }
 }
 
-#button {
+button {
   margin-left: 40%w;
-  background-color: #43aa8b;
-  border: 2px, solid, rgb(0, 0, 0);
+  background-color: #0575e6;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-family: "Fugaz One", cursive;
+}
+
+.hidden {
+  display: none;
+}
+
+#song-iframe {
+  height: 80px;
+  border: none;
 }
 
 .led-button {
