@@ -64,6 +64,14 @@ window.addEventListener("load", function () {
   document
     .getElementById("load-playlist-button")
     .addEventListener("click", loadPlaylist);
+
+  document
+    .getElementById("load-playlist-button")
+    .addEventListener("click", function () {
+      document.getElementById("iframePlay").classList.remove("hidden");
+      document.getElementById("blur").classList.remove("hideBlur");
+    });
+
   document
     .getElementById("submit-guess-button")
     .addEventListener("click", submitGuess);

@@ -11,25 +11,29 @@
     />
   </head>
   <body>
-    <h1>Name That Tune!</h1>
+    <div id="mainContainer">
+      <h1>Name That Tune!</h1>
 
-    <button id="load-playlist-button">Load Playlist</button>
+      <button id="load-playlist-button">Load Playlist</button>
 
-    <h2>Current Track</h2>
+      <h2>Current Track</h2>
 
-    <div class="hidden" id="iframePlay">
-      <iframe
-        src="https://open.spotify.com/embed/track/"
-        id="song-iframe"
-      ></iframe>
+      <div id="blur" class="hideBlur"></div>
+
+      <div class="hidden" id="iframePlay">
+        <iframe
+          src="https://open.spotify.com/embed/track/"
+          id="song-iframe"
+        ></iframe>
+      </div>
+
+      <h2>Name that tune:</h2>
+      <input type="text" id="guess-input" />
+      <button id="submit-guess-button">Submit Guess</button>
+      <button id="next-song-button">Next Song</button>
+
+      <h2>Score: <span id="score">0</span></h2>
     </div>
-
-    <p>Name that tune:</p>
-    <input type="text" id="guess-input" />
-    <button id="submit-guess-button">Submit Guess</button>
-    <button id="next-song-button">Next Song</button>
-
-    <h2>Score: <span id="score">0</span></h2>
 
     <script type="module" src="./js/apiRequest.js"></script>
     <script type="module" src="./js/index.js"></script>

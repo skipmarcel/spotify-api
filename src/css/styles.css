@@ -3,13 +3,14 @@ body {
   background-image: linear-gradient(
     to right,
     #1ccc5b,
-    #5bcf1c,
-    #a8e063,
-    #5bcf1c,
+    #1c73cf,
+    #7e29f6,
+    #cf1ccf,
+    #1c73cf,
     #1ccc5b
   );
   background-size: 400% 400%;
-  animation: moveGradient 10s ease infinite;
+  animation: moveGradient 8s ease infinite;
   animation-iteration-count: infinite;
   font-family: "Fugaz One", cursive;
   color: azure;
@@ -27,17 +28,63 @@ body {
   }
 }
 
+#mainContainer {
+  display: flex;
+  background-color: rgba(160, 120, 220, 0.1);
+  border-radius: 10px;
+  box-shadow: 5px 8px 10px black;
+  height: 660px;
+  width: 500px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 20px auto;
+}
+
+h1 {
+  font-size: 46px;
+  text-shadow: 3px 3px 2px black;
+}
+
+h2 {
+  text-shadow: 3px 3px 2px black;
+}
+
 button {
-  margin-left: 40%w;
   background-color: #0575e6;
   border-radius: 10px;
+  border: none;
   text-decoration: none;
+  padding: 5px 10px 5px 10px;
   color: white;
   font-family: "Fugaz One", cursive;
+  font-size: 20px;
+  box-shadow: 2px 3px 10px black;
+  cursor: pointer;
+}
+
+#submit-guess-button {
+  margin-bottom: 10px;
+}
+
+#blur {
+  position: absolute;
+  background-color: #a8e063;
+  height: 50px;
+  width: 230px;
+  margin: 30px auto 100px auto;
+  filter: blur(10px);
+}
+
+.hideBlur {
+  display: none;
 }
 
 .hidden {
   display: none;
+}
+
+#iframePlay {
 }
 
 #song-iframe {
@@ -45,76 +92,9 @@ button {
   border: none;
 }
 
-.led-button {
-  display: inline-block;
-  padding: 5px 10px;
-  border: none;
-  background-color: #1ccc5a00;
-  color: rgb(0, 0, 0);
-  font-size: 18px;
-  /* font-weight: bold; */
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  margin-right: 10px;
-}
-
-.led-button:before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  bottom: -10px;
-  right: -10px;
-  border-radius: 10%;
-  /* background-color: #1ccc5b; */
-  background-color: linear-gradient(to right, #1ccc5b, #0575e6);
-  box-shadow: 0 0 20px rgb(255, 3, 3);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.led-button:active:before {
-  opacity: 1;
-}
-
-.wrapper {
-  text-align: center;
-}
-
-h1 {
-  margin-top: 15%;
-}
-
-input[type="text"] {
-  color: black;
-  text-align: center;
-  background: linear-gradient(to right, #1ccc5a00, #0576e600);
-}
-
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: rgb(0, 0, 0);
-  opacity: 0.65; /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: rgb(0, 0, 0);
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: rgb(0, 0, 0);
-}
-
-#timer {
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 20px;
-}
-
-body {
-  text-align: center;
+#guess-input {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height: 26px;
+  width: 200px;
 }
