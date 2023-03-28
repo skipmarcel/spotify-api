@@ -1,3 +1,106 @@
 body {
-  background-color: lightblue;
+  background-color: rgba(0, 128, 0, 0);
+  background-image: linear-gradient(
+    to right,
+    #1ccc5b,
+    #5bcf1c,
+    #a8e063,
+    #5bcf1c,
+    #1ccc5b
+  );
+  background-size: 400% 400%;
+  animation: moveGradient 10s ease infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#button {
+  margin-left: 40%w;
+  background-color: #43aa8b;
+  border: 2px, solid, rgb(0, 0, 0);
+}
+
+.led-button {
+  display: inline-block;
+  padding: 5px 10px;
+  border: none;
+  background-color: #1ccc5a00;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  /* font-weight: bold; */
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  margin-right: 10px;
+}
+
+.led-button:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  bottom: -10px;
+  right: -10px;
+  border-radius: 10%;
+  /* background-color: #1ccc5b; */
+  background-color: linear-gradient(to right, #1ccc5b, #0575e6);
+  box-shadow: 0 0 20px rgb(255, 3, 3);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.led-button:active:before {
+  opacity: 1;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+h1 {
+  margin-top: 15%;
+}
+
+input[type="text"] {
+  color: black;
+  text-align: center;
+  background: linear-gradient(to right, #1ccc5a00, #0576e600);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(0, 0, 0);
+  opacity: 0.65; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(0, 0, 0);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(0, 0, 0);
+}
+
+#timer {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+body {
+  text-align: center;
 }
