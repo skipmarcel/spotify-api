@@ -7,10 +7,12 @@ body {
     #7e29f6,
     #cf1ccf,
     #1c73cf,
+    #1ccc5b,
+    #f7f709,
     #1ccc5b
   );
   background-size: 400% 400%;
-  animation: moveGradient 8s ease infinite;
+  animation: moveGradient 12s ease infinite;
   animation-iteration-count: infinite;
   font-family: "Fugaz One", cursive;
   color: azure;
@@ -90,6 +92,8 @@ button {
 #song-iframe {
   height: 80px;
   border: none;
+  border-radius: 10px;
+  box-shadow: 2px 3px 10px black;
 }
 
 #guess-input {
