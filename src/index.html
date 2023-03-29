@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
       rel="stylesheet"
@@ -14,11 +15,13 @@
     <div id="mainContainer">
       <h1>Name That Tune!</h1>
 
-      <button id="load-playlist-button">Load Playlist</button>
+      <button id="load-playlist-button">Start Game</button>
 
       <h2>Current Track</h2>
 
-      <div id="blur" class="hideBlur"></div>
+      <div id="track-blur" class="hideBlur"></div>
+      <div id="artist-blur" class="hideBlur1"></div>
+      <div id="cover-blur" class="hideBlur2"></div>
 
       <div class="hidden" id="iframePlay">
         <iframe
@@ -30,6 +33,7 @@
       <h2>Name that tune:</h2>
       <input type="text" id="guess-input" />
       <button id="submit-guess-button">Submit Your Guess</button>
+      <button id="hint">Hint</button>
       <button id="next-song-button">Next Song</button>
 
       <h2>Score: <span id="score">0</span></h2>

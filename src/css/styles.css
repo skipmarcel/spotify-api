@@ -32,7 +32,7 @@ body {
 
 #mainContainer {
   display: flex;
-  background-color: rgba(160, 120, 220, 0.1);
+  background-color: rgba(255, 1, 1, 0.212);
   border-radius: 10px;
   box-shadow: 5px 8px 10px black;
   height: 660px;
@@ -69,16 +69,46 @@ button {
   margin-bottom: 10px;
 }
 
-#blur {
+#track-blur {
   position: absolute;
-  background-color: #a8e063;
-  height: 50px;
-  width: 230px;
-  margin: 30px auto 100px auto;
-  filter: blur(10px);
+  background-color: white;
+  height: 22px;
+  width: 180px;
+  margin: 2px auto 126px 42px;
+  border-radius: 6px;
+  /* filter: blur(10px); */
+}
+
+#artist-blur {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 14px;
+  width: 137px;
+  margin: -25px auto 60px auto;
+  border-radius: 6px;
+  /* filter: blur(10px); */
+}
+
+#cover-blur {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 65px;
+  width: 67px;
+  margin: -35px auto 60px auto;
+  border-radius: 6px;
+  margin-left: -219px;
+  /* filter: blur(10px); */
 }
 
 .hideBlur {
+  display: none;
+}
+
+.hideBlur1 {
+  display: none;
+}
+
+.hideBlur2 {
   display: none;
 }
 
@@ -101,4 +131,8 @@ button {
   margin-bottom: 10px;
   height: 26px;
   width: 200px;
+}
+
+#hint {
+  margin-bottom: 10px;
 }
