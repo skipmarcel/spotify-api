@@ -32,7 +32,7 @@ body {
 
 #mainContainer {
   display: flex;
-  background-color: rgba(255, 1, 1, 0.212);
+  background-color: rgba(255, 1, 1, 0.267);
   border-radius: 10px;
   box-shadow: 5px 8px 10px black;
   height: 660px;
@@ -41,6 +41,20 @@ body {
   justify-content: center;
   align-items: center;
   margin: 50px auto 20px auto;
+}
+
+#sideContainer {
+  display: flex;
+  background-color: rgba(255, 1, 1, 0.267);
+  border-radius: 10px;
+  box-shadow: 5px 8px 10px black;
+  height: 935px;
+  width: 500px;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: -720px 10px 20px auto;
 }
 
 h1 {
@@ -53,7 +67,7 @@ h2 {
 }
 
 button {
-  background-color: #0575e6;
+  background-color: #e6050559;
   border-radius: 10px;
   border: none;
   text-decoration: none;
@@ -74,7 +88,7 @@ button {
   background-color: white;
   height: 22px;
   width: 180px;
-  margin: 2px auto 126px 42px;
+  margin: -35px auto 126px 42px;
   border-radius: 6px;
   /* filter: blur(10px); */
 }
@@ -84,7 +98,7 @@ button {
   background-color: rgb(255, 255, 255);
   height: 14px;
   width: 137px;
-  margin: -25px auto 60px auto;
+  margin: -60px auto 60px auto;
   border-radius: 6px;
   /* filter: blur(10px); */
 }
@@ -94,7 +108,7 @@ button {
   background-color: rgb(255, 255, 255);
   height: 65px;
   width: 67px;
-  margin: -35px auto 60px auto;
+  margin: -73px auto 60px auto;
   border-radius: 6px;
   margin-left: -219px;
   /* filter: blur(10px); */
@@ -135,4 +149,8 @@ button {
 
 #hint {
   margin-bottom: 10px;
+}
+
+#Top-Scores {
+  margin-top: -100px;
 }
