@@ -1,4 +1,5 @@
-import { getAccessToken } from "./apiRequest.js";
+import { getAccessToken } from "./js/apiRequest.js";
+import "./css/styles.css";
 
 const guessInput = document.getElementById("guess-input");
 
@@ -42,8 +43,10 @@ function submitGuess() {
   const currentTrack = playlistTracks[currentTrackIndex];
   const guess = guessInput.value.trim().toLowerCase();
   const correctAnswer = currentTrack.name.toLowerCase();
-  if (nextClickCount === 10) {
+  if (submitClickCount === 9) {
     alert(`Game Over! Your score is ${score}.`);
+    document.getElementById("scores").classList.remove("hidden");
+    document.getElementById("game").classList.add("hidden");
   } else if (guess === correctAnswer) {
     if (hintClickCount === 0) {
       score += 3;
@@ -56,11 +59,32 @@ function submitGuess() {
     }
     document.getElementById("score").textContent = score;
     alert("Correct!");
+    nextSong();
   } else {
     alert("Incorrect. Try again!");
+    nextSong();
   }
-  nextSong();
+  // console.log(hintClickCount);
+  hintClickCount = 0;
+  handleSubmitClick();
 }
+
+// function displayTopScores() {
+//   let topScores = document.getElementById("topScores");
+//   let scores = JSON.parse(localStorage.getItem("highscores")) || [];
+//   scores.sort((a, b) => b.score - a.score);
+//   let top10Scores = scores.slice(0, 10);
+
+//   let scoreList = document.createElement("ol");
+//   top10Scores.forEach((score) => {
+//     let listItem = document.createElement("li");
+//     listItem.textContent = `${score.name}: ${score.score}`;
+//     scoreList.appendChild(listItem);
+//   });
+
+//   topScores.innerHTML = "";
+//   topScores.appendChild(scoreList);
+// }
 
 // Load and display the next song in the playlist
 function nextSong() {
@@ -88,7 +112,15 @@ function getNextTrackIndex() {
   return randomIndex;
 }
 
-window.addEventListener("load", function () {
+function runApp() {
+  let names = document.getElementById("submitNames");
+
+  names.addEventListener("click", () => {
+    event.preventDefault();
+    document.getElementById("game").hidden = false;
+    document.getElementById("playerNames").hidden = true;
+  });
+
   document
     .getElementById("load-playlist-button")
     .addEventListener("click", loadPlaylist);
@@ -104,38 +136,40 @@ window.addEventListener("load", function () {
   document
     .getElementById("submit-guess-button")
     .addEventListener("click", submitGuess);
-  document
-    .getElementById("next-song-button")
-    .addEventListener("click", nextSong);
-  hintButton.addEventListener("click", handleHintClick);
-});
+  // document
+  //   .getElementById("next-song-button")
+  //   .addEventListener("click", nextSong);
+  // hintButton.addEventListener("click", handleHintClick);
+}
+
+window.addEventListener("load", runApp);
 
 let hintClickCount = 0;
 
 const hintButton = document.getElementById("hint");
+hintButton.addEventListener("click", handleHintClick);
 
 function handleHintClick() {
   hintClickCount++;
   if (hintClickCount === 1) {
-    document.getElementById("cover-blur").classList.add("hideBlur1");
+    document.getElementById("cover-blur").classList.add("hideBlur2");
   } else if (hintClickCount === 2) {
-    document.getElementById("artist-blur").classList.add("hideBlur2");
+    document.getElementById("artist-blur").classList.add("hideBlur1");
   } else if (hintClickCount === 3) {
     document.getElementById("track-blur").classList.add("hideBlur");
   }
 }
 
-let nextClickCount = 0;
+let submitClickCount = 0;
 
-const nextButton = document.getElementById("next-song-button");
-nextButton.addEventListener("click", handleNextClick);
+const submitButton = document.getElementById("submit-guess-button");
+submitButton.addEventListener("click", submitGuess);
 
-function handleNextClick() {
-  hintClickCount = 0;
-  nextClickCount++;
-  document.getElementById("cover-blur").classList.remove("hideBlur2");
-  document.getElementById("artist-blur").classList.remove("hideBlur1");
-  document.getElementById("track-blur").classList.remove("hideBlur");
+function handleSubmitClick() {
+  submitClickCount++;
+  document.getElementById("cover-blur").classList.remove("hideBlur2"); //("hideBlur2");
+  document.getElementById("artist-blur").classList.remove("hideBlur1"); //("hideBlur1");
+  document.getElementById("track-blur").classList.remove("hideBlur"); //("hideBlur");
 }
 
 const loadPlaylistButton = document.getElementById("load-playlist-button");

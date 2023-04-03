@@ -22,6 +22,7 @@ module.exports = {
     new CleanWebpackPlugin({
       verbose: true,
     }),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
       title: "Spotify API",
       template: "./src/index.html",

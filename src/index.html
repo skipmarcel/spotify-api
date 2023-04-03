@@ -2,47 +2,68 @@
 <html>
   <head>
     <title>Spotify Song Guessing Game</title>
-    <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <meta charset="UTF-8" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div id="mainContainer">
-      <h1>Song Sleuth</h1>
-
-      <button id="load-playlist-button" class="hide-button">Start Game</button>
-
-      <h2>Current Track</h2>
-
-      <!-- <div id="track-blur" class="hideBlur"></div>
-      <div id="artist-blur" class="hideBlur1"></div>
-      <div id="cover-blur" class="hideBlur2"></div> -->
-
-      <div class="hidden" id="iframePlay">
-        <iframe
-          src="https://open.spotify.com/embed/track/"
-          id="song-iframe"
-        ></iframe>
+    <div id="playerNames">
+      <div id="mainContainer">
+        <form>
+          <label for="player1">Player 1 Name:</label>
+          <input type="text" id="player1" name="player1" /><br /><br />
+          <label for="player2">Player 2 Name:</label>
+          <input type="text" id="player2" name="player2" /><br /><br />
+          <button id="submitNames">Submit</button>
+        </form>
       </div>
-
-      <h2>Make your guess:</h2>
-      <input type="text" id="guess-input" />
-      <button id="submit-guess-button">Submit Your Guess</button>
-      <button id="hint">Hint</button>
-      <!-- <button id="next-song-button">Next Song</button> -->
-
-      <h2>Score: <span id="score">0</span></h2>
-    </div>
-    <div id="sideContainer">
-      <h3 class="Top Score">Top Scores:</h3>
     </div>
 
-    <script type="module" src="./js/apiRequest.js"></script>
-    <script type="module" src="./js/index.js"></script>
+    <div id="game" hidden>
+      <div id="mainContainer2">
+        <h1>Song Sleuth</h1>
+        <button id="load-playlist-button" class="hide-button">
+          Start Game
+        </button>
+
+        <h2>Current Track</h2>
+        <!-- 
+        <div id="track-blur" class="hideBlur"></div>
+        <div id="artist-blur" class="hideBlur1"></div>
+        <div id="cover-blur" class="hideBlur2"></div> -->
+        <div class="hidden" id="iframePlay">
+          <iframe
+            src="https://open.spotify.com/embed/track/"
+            id="song-iframe"
+          ></iframe>
+        </div>
+
+        <h2>Make your guess:</h2>
+        <input type="text" id="guess-input" />
+        <button id="submit-guess-button">Submit Your Guess</button>
+        <button id="hint">Hint</button>
+        <!-- <button id="next-song-button">Next Song</button> -->
+      </div>
+    </div>
+
+    <div id="scores" class="hidden">
+      <div id="mainContainer">
+        <h1 id="topScores">Top Scores:</h1>
+        <br />
+        <button id="playAgain">Play Again</button>
+        <!-- <h2>Score: <span id="score">0</span></h2>
+        <h4 id="Top Score">
+          Top Scores <a href="scores.html" style="color: #e60505">Here</a>!
+        </h4> -->
+        <!-- <div id="sideContainer">
+        <h3 id="Top Score">Top Scores:</h3>
+      </div> -->
+      </div>
+    </div>
   </body>
 </html>
