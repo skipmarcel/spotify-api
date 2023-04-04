@@ -186,7 +186,7 @@ button {
   background-color: white;
   height: 22px;
   width: 180px;
-  margin: -5px auto 126px 42px;
+  margin: 60px auto 70px 42px;
   border-radius: 6px;
   /* filter: blur(10px); */
 }
@@ -196,7 +196,7 @@ button {
   background-color: rgb(255, 255, 255);
   height: 14px;
   width: 137px;
-  margin: -28px auto 60px auto;
+  margin: 140px auto 105px auto;
   border-radius: 6px;
   /* filter: blur(10px); */
 }
@@ -206,7 +206,7 @@ button {
   background-color: rgb(255, 255, 255);
   height: 65px;
   width: 67px;
-  margin: -33px auto 60px auto;
+  margin: 108px auto 80px auto;
   border-radius: 6px;
   margin-left: -219px;
   /* filter: blur(10px); */

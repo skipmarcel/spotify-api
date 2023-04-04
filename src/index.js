@@ -9,6 +9,27 @@ let playlistTracks = [];
 let playedIndices = [];
 let currentTrackIndex = -1;
 let score = 0;
+let currentPlayer = 2;
+
+function enterPlayers() {
+  let player1 = document.getElementById("player1").value;
+  let player2 = document.getElementById("player2").value;
+
+  document.getElementById("playerOneName").innerText = player1;
+  document.getElementById("playerTwoName").innerText = player2;
+  return { player1: player1, player2: player2 };
+}
+
+function turnDisplay() {
+  let player1 = document.getElementById("player1").value;
+  let player2 = document.getElementById("player2").value;
+  currentPlayer = currentPlayer === 1 ? 2 : 1;
+  if (currentPlayer === 1) {
+    document.getElementById("turnName").innerText = player1;
+  } else if (currentPlayer === 2) {
+    document.getElementById("turnName").innerText = player2;
+  }
+}
 
 // Load playlist when button is clicked
 async function loadPlaylist() {
@@ -57,34 +78,27 @@ function submitGuess() {
     } else if (hintClickCount >= 3) {
       score += 0;
     }
-    document.getElementById("score").textContent = score;
+    if (currentPlayer === 1) {
+      document.getElementById("player1Score").textContent = score;
+    } else if (currentPlayer === 2) {
+      document.getElementById("player2Score").textContent = score;
+    }
     alert("Correct!");
+    console.log("Calling next song...");
     nextSong();
   } else {
     alert("Incorrect. Try again!");
     nextSong();
   }
-  // console.log(hintClickCount);
+  turnDisplay();
+  score = 0;
   hintClickCount = 0;
   handleSubmitClick();
 }
 
-// function displayTopScores() {
-//   let topScores = document.getElementById("topScores");
-//   let scores = JSON.parse(localStorage.getItem("highscores")) || [];
-//   scores.sort((a, b) => b.score - a.score);
-//   let top10Scores = scores.slice(0, 10);
-
-//   let scoreList = document.createElement("ol");
-//   top10Scores.forEach((score) => {
-//     let listItem = document.createElement("li");
-//     listItem.textContent = `${score.name}: ${score.score}`;
-//     scoreList.appendChild(listItem);
-//   });
-
-//   topScores.innerHTML = "";
-//   topScores.appendChild(scoreList);
-// }
+const submitButton = document.getElementById("submit-guess-button");
+console.log(submitButton);
+submitButton.addEventListener("click", submitGuess);
 
 // Load and display the next song in the playlist
 function nextSong() {
@@ -112,6 +126,8 @@ function getNextTrackIndex() {
   return randomIndex;
 }
 
+window.addEventListener("load", runApp);
+
 function runApp() {
   let names = document.getElementById("submitNames");
 
@@ -121,6 +137,9 @@ function runApp() {
     document.getElementById("playerNames").hidden = true;
   });
 
+  document
+    .getElementById("submit-guess-button")
+    .addEventListener("click", submitGuess);
   document
     .getElementById("load-playlist-button")
     .addEventListener("click", loadPlaylist);
@@ -133,16 +152,14 @@ function runApp() {
       document.getElementById("artist-blur").classList.remove("hideBlur1");
       document.getElementById("cover-blur").classList.remove("hideBlur2");
     });
-  document
-    .getElementById("submit-guess-button")
-    .addEventListener("click", submitGuess);
-  // document
-  //   .getElementById("next-song-button")
-  //   .addEventListener("click", nextSong);
-  // hintButton.addEventListener("click", handleHintClick);
-}
 
-window.addEventListener("load", runApp);
+  document
+    .getElementById("submitNames")
+    .addEventListener("click", enterPlayers);
+  document
+    .getElementById("load-playlist-button")
+    .addEventListener("click", turnDisplay);
+}
 
 let hintClickCount = 0;
 
@@ -161,9 +178,6 @@ function handleHintClick() {
 }
 
 let submitClickCount = 0;
-
-const submitButton = document.getElementById("submit-guess-button");
-submitButton.addEventListener("click", submitGuess);
 
 function handleSubmitClick() {
   submitClickCount++;
