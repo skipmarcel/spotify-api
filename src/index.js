@@ -71,7 +71,7 @@ function submitGuess() {
   let player2 = document.getElementById("player2").value;
   let currentScore = 0;
 
-  if (submitClickCount === 3) {
+  if (submitClickCount === 9) {
     alert(`Game Over! Your score is ${currentScore}.`);
     document.getElementById("scores").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
@@ -97,7 +97,7 @@ function submitGuess() {
     nextSong();
     localStorage.setItem("playerScores", JSON.stringify(playerScores));
   } else {
-    alert("Incorrect. Try again!");
+    alert("Incorrect. Calling next song...");
     nextSong();
   }
 
@@ -131,7 +131,9 @@ function gameReset() {
   document.getElementById("playerTwoName").textContent = "";
   document.getElementById("player2Score").textContent = "";
   document.getElementById("playerNames").classList.remove("hidden");
+  document.getElementById("load-playlist-button").classList.remove("hidden");
   document.getElementById("scores").classList.add("hidden");
+  document.getElementById("turnName").textContent = "";
 }
 
 // Load and display the next song in the playlist
@@ -226,7 +228,7 @@ function handleHintClick() {
 function handleSubmitClick() {
   submitClickCount++;
   document.getElementById("cover-blur").classList.remove("hideBlur2"); //("hideBlur2");
-  document.getElementById("artist-blur").classList.remove("hideBlur1"); //("hideBlur1");
+  document.getElementById("artist-blur").classLiREADst.remove("hideBlur1"); //("hideBlur1");
   document.getElementById("track-blur").classList.remove("hideBlur"); //("hideBlur");
 }
 
