@@ -10,6 +10,7 @@ let playedIndices = [];
 let currentTrackIndex = -1;
 let score = 0;
 let currentPlayer = 2;
+let playerScores = {};
 
 function enterPlayers() {
   let player1 = document.getElementById("player1").value;
@@ -64,41 +65,66 @@ function submitGuess() {
   const currentTrack = playlistTracks[currentTrackIndex];
   const guess = guessInput.value.trim().toLowerCase();
   const correctAnswer = currentTrack.name.toLowerCase();
+  let player1Score = document.getElementById("player1Score");
+  let player2Score = document.getElementById("player2Score");
+  let player1 = document.getElementById("player1").value;
+  let player2 = document.getElementById("player2").value;
+  let currentScore = 0;
+
   if (submitClickCount === 9) {
-    alert(`Game Over! Your score is ${score}.`);
+    alert(`Game Over! Your score is ${currentScore}.`);
     document.getElementById("scores").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
+    displayScores();
   } else if (guess === correctAnswer) {
     if (hintClickCount === 0) {
-      score += 3;
+      currentScore = 3;
     } else if (hintClickCount === 1) {
-      score += 2;
+      currentScore = 2;
     } else if (hintClickCount === 2) {
-      score += 1;
+      currentScore = 1;
     } else if (hintClickCount >= 3) {
-      score += 0;
+      currentScore = 0;
     }
     if (currentPlayer === 1) {
-      document.getElementById("player1Score").textContent = score;
+      playerScores[player1] = (playerScores[player1] || 0) + currentScore;
+      player1Score.textContent = playerScores[player1];
     } else if (currentPlayer === 2) {
-      document.getElementById("player2Score").textContent = score;
+      playerScores[player2] = (playerScores[player2] || 0) + currentScore;
+      player2Score.textContent = playerScores[player2];
     }
-    alert("Correct!");
-    console.log("Calling next song...");
+    alert("Correct! Calling next song...");
     nextSong();
+    localStorage.setItem("playerScores", JSON.stringify(playerScores));
   } else {
     alert("Incorrect. Try again!");
     nextSong();
   }
+
   turnDisplay();
   score = 0;
   hintClickCount = 0;
   handleSubmitClick();
 }
 
-const submitButton = document.getElementById("submit-guess-button");
-console.log(submitButton);
-submitButton.addEventListener("click", submitGuess);
+function displayScores() {
+  let scoresList = document.getElementById("scores-list");
+  let playerScores = JSON.parse(localStorage.getItem("playerScores")) || {};
+  let sortedScores = Object.entries(playerScores)
+    .sort(([, score1], [, score2]) => score2 - score1)
+    .reduce((sortedObj, [key, value]) => {
+      sortedObj[key] = value;
+      return sortedObj;
+    }, {});
+  for (let [playerName, score] of Object.entries(sortedScores)) {
+    let li = document.createElement("li");
+    li.textContent = `${playerName}: ${score}`;
+    scoresList.appendChild(li);
+  }
+}
+
+// const submitButton = document.getElementById("submit-guess-button");
+// submitButton.addEventListener("click", submitGuess);
 
 // Load and display the next song in the playlist
 function nextSong() {
@@ -126,6 +152,8 @@ function getNextTrackIndex() {
   return randomIndex;
 }
 
+// UI logic mostly
+
 window.addEventListener("load", runApp);
 
 function runApp() {
@@ -140,6 +168,7 @@ function runApp() {
   document
     .getElementById("submit-guess-button")
     .addEventListener("click", submitGuess);
+
   document
     .getElementById("load-playlist-button")
     .addEventListener("click", loadPlaylist);
@@ -159,6 +188,7 @@ function runApp() {
   document
     .getElementById("load-playlist-button")
     .addEventListener("click", turnDisplay);
+  document.getElementById("scores").classList.add("hidden");
 }
 
 let hintClickCount = 0;
