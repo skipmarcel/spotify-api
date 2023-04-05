@@ -134,6 +134,10 @@ function gameReset() {
   document.getElementById("load-playlist-button").classList.remove("hidden");
   document.getElementById("scores").classList.add("hidden");
   document.getElementById("turnName").textContent = "";
+  document.getElementById("iframePlay").classList.add("hidden");
+  document.getElementById("track-blur").classList.add("hideBlur");
+  document.getElementById("artist-blur").classList.add("hideBlur1");
+  document.getElementById("cover-blur").classList.add("hideBlur2");
 }
 
 // Load and display the next song in the playlist
