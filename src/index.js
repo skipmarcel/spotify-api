@@ -93,11 +93,11 @@ function submitGuess() {
       playerScores[player2] = (playerScores[player2] || 0) + currentScore;
       player2Score.textContent = playerScores[player2];
     }
-    alert("Correct! Calling next song...");
+    alert("Correct! Calling song for next player...");
     nextSong();
     localStorage.setItem("playerScores", JSON.stringify(playerScores));
   } else {
-    alert("Incorrect. Calling next song...");
+    alert("Incorrect. Calling song for next player...");
     nextSong();
   }
 
