@@ -8,9 +8,9 @@ let accessToken = "";
 let playlistTracks = [];
 let playedIndices = [];
 let currentTrackIndex = -1;
-let score = 0;
 let currentPlayer = 2;
 let playerScores = {};
+let submitClickCount = 0;
 
 function enterPlayers() {
   let player1 = document.getElementById("player1").value;
@@ -71,7 +71,7 @@ function submitGuess() {
   let player2 = document.getElementById("player2").value;
   let currentScore = 0;
 
-  if (submitClickCount === 9) {
+  if (submitClickCount === 3) {
     alert(`Game Over! Your score is ${currentScore}.`);
     document.getElementById("scores").classList.remove("hidden");
     document.getElementById("game").classList.add("hidden");
@@ -102,7 +102,6 @@ function submitGuess() {
   }
 
   turnDisplay();
-  score = 0;
   hintClickCount = 0;
   handleSubmitClick();
 }
@@ -123,8 +122,17 @@ function displayScores() {
   }
 }
 
-// const submitButton = document.getElementById("submit-guess-button");
-// submitButton.addEventListener("click", submitGuess);
+function gameReset() {
+  submitClickCount = 0;
+  currentPlayer = 2;
+  document.getElementById("playerOneName").textContent = "";
+  document.getElementById("formStyle").reset();
+  document.getElementById("player1Score").textContent = "";
+  document.getElementById("playerTwoName").textContent = "";
+  document.getElementById("player2Score").textContent = "";
+  document.getElementById("playerNames").classList.remove("hidden");
+  document.getElementById("scores").classList.add("hidden");
+}
 
 // Load and display the next song in the playlist
 function nextSong() {
@@ -157,12 +165,14 @@ function getNextTrackIndex() {
 window.addEventListener("load", runApp);
 
 function runApp() {
-  let names = document.getElementById("submitNames");
+  let submitNamesButton = document.getElementById("submitNames");
+  let playAgain = document.getElementById("playAgain");
+  document.getElementById("game").classList.add("hidden");
 
-  names.addEventListener("click", () => {
+  submitNamesButton.addEventListener("click", () => {
+    document.getElementById("playerNames").classList.add("hidden");
+    document.getElementById("game").classList.remove("hidden");
     event.preventDefault();
-    document.getElementById("game").hidden = false;
-    document.getElementById("playerNames").hidden = true;
   });
 
   document
@@ -181,6 +191,10 @@ function runApp() {
       document.getElementById("artist-blur").classList.remove("hideBlur1");
       document.getElementById("cover-blur").classList.remove("hideBlur2");
     });
+
+  playAgain.addEventListener("click", function () {
+    gameReset();
+  });
 
   document
     .getElementById("submitNames")
@@ -207,7 +221,7 @@ function handleHintClick() {
   }
 }
 
-let submitClickCount = 0;
+// let submitClickCount = 0;
 
 function handleSubmitClick() {
   submitClickCount++;

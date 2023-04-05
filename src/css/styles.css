@@ -116,7 +116,7 @@ h2 {
   text-shadow: 3px 3px 2px black;
 }
 
-.playAgainButton {
+/* .playAgainButton {
   background-color: none;
   border-radius: 10px;
   border: 1px solid white;
@@ -128,7 +128,7 @@ h2 {
   cursor: pointer;
   box-shadow: none;
   margin-top: 480px;
-}
+} */
 
 button {
   background-color: #e6050559;
@@ -248,8 +248,4 @@ button {
 
 h4 {
   text-shadow: 3px 3px 2px black;
-}
-
-#playAgain {
-  margin-bottom: -1000px;
 }
