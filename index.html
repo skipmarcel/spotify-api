@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotify Song Guessing Game</title>
+    <meta charset="UTF-8" />
+
+    <!-- Font Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- First page for entering player names -->
+    <div id="playerNames">
+      <div id="mainContainer2">
+        <h1>Song Sleuth</h1>
+        <form id="formStyle">
+          <h2><label for="player1">Player 1 Name:</label></h2>
+          <input type="text" id="player1" name="player1" />
+
+          <h2><label for="player2">Player 2 Name:</label></h2>
+          <input type="text" id="player2" name="player2" />
+
+          <div>
+            <button id="submitNames">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Second page for game play -->
+    <div id="game">
+      <div id="mainContainer">
+        <h1 id="gamePageTitle">Song Sleuth</h1>
+        <button id="load-playlist-button" class="hide-button">
+          Start Game
+        </button>
+
+        <h2>Current Track</h2>
+        <div id="scoreBoardContainer">
+          <div id="player1Info">
+            <span id="player1">PLAYER 1: </span
+            ><span id="playerOneName">NAME</span>
+            <span>SCORE:</span>
+            <span id="player1Score">0</span>
+          </div>
+
+          <div id="player2Info">
+            <span id="player2Name">PLAYER 2: </span
+            ><span id="playerTwoName">Name</span>
+            <span>SCORE:</span>
+            <span id="player2Score">0</span>
+          </div>
+
+          <div id="turns"><span>TURN: </span><span id="turnName"></span></div>
+        </div>
+
+        <div id="track-blur" class="hideBlur"></div>
+        <div id="artist-blur" class="hideBlur1"></div>
+        <div id="cover-blur" class="hideBlur2"></div>
+        <div class="hidden" id="iframePlay">
+          <iframe
+            src="https://open.spotify.com/embed/track/"
+            id="song-iframe"
+          ></iframe>
+        </div>
+
+        <h2>Make your guess:</h2>
+        <input type="text" id="guess-input" />
+        <button id="submit-guess-button">Submit Your Guess</button>
+        <button id="hint">Hint</button>
+        <!-- <button id="next-song-button">Next Song</button> -->
+      </div>
+    </div>
+
+    <!-- Third page for top scores -->
+
+    <div id="scores">
+      <div id="mainContainer3">
+        <div id="highScoreContainer">
+          <p>Top Scores</p>
+          <ol id="scores-list"></ol>
+          <button id="playAgain">Play Again</button>
+        </div>
+      
+  <script src="bundle.js"></script></body>
+</html>
