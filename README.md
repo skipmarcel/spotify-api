@@ -1,6 +1,6 @@
 # _Spotify Game_
 
-#### By _**Tyler Adams**_**Amanda Guan**_ _**Brandon Spear**_ _**Matt Melito**_
+#### By _**Tyler Adams**_ _**Amanda Guan**_ _**Brandon Spear**_ _**Matt Melito**_
 
 https://github.com/amandaguan-ag https://www.linkedin.com/in/amandaguan1/
 https://github.com/TheEPICturkey https://www.linkedin.com/in/brandon-m-spear/
